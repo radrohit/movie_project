@@ -14,7 +14,7 @@ class Movie(models.Model):
 		]
 
 		) 
-	genre = models.ForeignKey('movie_site.Genre')
+	genre = models.ForeignKey('Genre')
 
 	def __str__(self):
 		return self.name

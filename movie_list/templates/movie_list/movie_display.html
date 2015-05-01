@@ -1,14 +1,36 @@
+{% load staticfiles %}
 <html>
 	<head>
 		<title>Movie List</title>
+		 <link rel="stylesheet" href="{% static 'css/movie_list.css' %}">
+		 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	</head>
 	<body>
-		<h1><a href = "/">Movie List</a></h1>
-		{% for movie in movies %}
-			<h3><a href = "">{{movie.movie_name}}</h3>
-			<img src = "{{movie.image_url}}" height = 200 width = 200>
-			<p>{{movie.release_date}}</p>
-		{% endfor %}
+		<nav class = "navbar navbar-default">
+			<div class = "container-fluid">
+				<div class = "navbar-header">
+					<a class = "navbar-brand" href = "/">Movie List</a>
+				</div>
+				<div>
+					<ul class = "nav navbar-nav">
+						<li class = "active"><a href = "/">Home</a></li>
+						<li><a href = "/">Add Movie</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class = "content">
+			<div class = 'row'>
+				{% for movie in movies %}
+					<div class = 'col-sm-4'>
+						<h3><a href = "">{{movie.movie_name}}</h3>
+						<img src = "{{movie.image_url}}" height = 200 width = 200>
+						<p>{{movie.release_date}}</p>
+					</div>
+				{% endfor %}
+			</div>
+		<div>
 
 	</body>
 

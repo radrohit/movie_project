@@ -31,7 +31,7 @@ class Movie(models.Model):
 		MinValueValidator(1880)],
 		default = datetime.datetime.now().year)
 	movie_poster = models.ImageField(
-		upload_to = "poster", default ='default.jpg')
+		upload_to = "poster", blank = True)
 	movie_description = models.TextField()
 	mpaa_rating = models.CharField(max_length =5,
 		choices = MPAA_RATINGS, default = 'N/A')
@@ -57,7 +57,7 @@ class Movie(models.Model):
 		if self.movie_poster and hasattr(self.movie_poster, 'url'):
 			return self.movie_poster.url
 		else:
-			return 'default.jpg'
+			return 'images/poster/default.jpg'
 
 
 

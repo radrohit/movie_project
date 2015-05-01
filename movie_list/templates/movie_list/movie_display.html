@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title>Movie List</title>
+	</head>
+	<body>
+		<h1><a href = "/">Movie List</a></h1>
+		{% for movie in movies %}
+			<h3><a href = "">{{movie.movie_name}}</h3>
+			<img src = "{{movie.image_url}}" height = 200 width = 200>
+			<p>{{movie.release_date}}</p>
+		{% endfor %}
+
+	</body>
+
+</html>
+

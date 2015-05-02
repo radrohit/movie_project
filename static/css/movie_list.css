@@ -1,0 +1,22 @@
+
+.thumbnail h3{
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 1px;
+	margin-left: 0px;
+	margin-right: 0px;
+
+}
+
+.thumbnail p{
+	text-align: center;
+	font-size: 140%;
+	margin: 0px;
+}
+
+.thumbnail>img, .thumbnail a>img{
+	margin-right:0px;
+
+}
+
+

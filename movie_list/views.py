@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from . models import Movie
 from . forms import AddMovie
 
@@ -20,4 +20,4 @@ def add_new(request):
 
 def movie_detail(request,pk):
 	movie = get_object_or_404(Movie,pk = pk)
-	return render(request,'movie_list/movie_detail.html',{'movie',movie})
+	return render(request,'movie_list/movie_detail.html',{'movie':movie})

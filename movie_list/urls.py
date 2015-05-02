@@ -17,4 +17,10 @@ if settings.DEBUG:
         url(r'^images/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.MEDIA_ROOT,
         }),
+    
+    )
+    urlpatterns += patterns('',
+        url(r'^([0-9]+)/images/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.MEDIA_ROOT,
+        }),
    )

@@ -14,27 +14,19 @@
 				</div>
 				<div>
 					<ul class = "nav navbar-nav">
-						<li class = "active"><a href = "/">Home</a></li>
-						<li><a href = "/new">Add Movie</a></li>
+						<li><a href = "/">Home</a></li>
+						<li class = "active"><a href = "{% url 'movie_list.views.add_new'}">Add Movie</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
-		<div class = "content">
-			<div class = 'row'>
-				{% for movie in movies %}
-					<div class = 'col-sm-3'>
-						<div class = 'thumbnail'>
-							<h3><a href = "{% url 'movie_list.views.movie_detail' pk = movie.pk %}">{{movie.movie_name}}</h3>
-							<a href = "{% url 'movie_list.views.movie_detail' pk = movie.pk %}"><img src = "{{movie.image_url}}"></a>
-							<p>{{movie.release_date}}</p>
-						</div>
-					</div>
-				{% endfor %}
-			</div>
-		<div>
 
+		<div class = 'content'>
+			<h1>Add Movies</h1>
+			<form method = 'POST', class = 'post-form'>{% csrf_token %}
+				{{ form.as_p }}
+				<button type="submit" class="save btn btn-default">Save</button>
+			</form>
+		</div>
 	</body>
-
 </html>
-

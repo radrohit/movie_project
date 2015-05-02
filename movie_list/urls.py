@@ -6,6 +6,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import patterns
 urlpatterns = [
 	url(r'^$',views.movie_display),
+	url(r'^new/$',views.add_new),
+	url(r'^post/(?P<pk>[0-9]+)/$',views.movie_detail),
 	] 
 
 urlpatterns += staticfiles_urlpatterns()

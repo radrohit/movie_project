@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# Added our app movie_list
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -88,6 +88,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
+# Changed timezone to NY
 TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
@@ -100,9 +101,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+# Path to the static files and media files in the movie_project
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR,'static'),)
+    os.path.join(BASE_DIR, 'static'),
+)
 ENV_PATH = os.path.abspath(BASE_DIR)
-MEDIA_ROOT = os.path.join(ENV_PATH, 'static','images')
+MEDIA_ROOT = os.path.join(ENV_PATH, 'static', 'images')
 MEDIA_URL = 'images/'

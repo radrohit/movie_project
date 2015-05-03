@@ -1,45 +1,21 @@
-{% load staticfiles %}
-<html>
-	<head>
-		<title>Movie List</title>
-		 <link rel="stylesheet" href="{% static 'css/movie_list.css' %}">
-		 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	</head>
-	<body>
-		<nav class = "navbar navbar-default">
-			<div class = "container-fluid">
-				<div class = "navbar-header">
-					<a class = "navbar-brand" href = "/">Movie List</a>
-				</div>
-				<div>
-					<ul class = "nav navbar-nav">
-						<li class = "active"><a href = "/">Home</a></li>
-						<li><a href = "/new">Add Movie</a></li>
-					</ul>
+{% extends 'movie_list/base.html' %}
+{% block content %}
+
+	<form method = "GET" , action = "search">
+        <input type="text" name = "q" placeholder="Search..." required/>
+        <input type="submit" />
+
+	</form>
+	<div class = 'row'>
+		{% for movie in movies %}
+			<div class = 'col-sm-3'>
+				<div class = 'thumbnail'>
+					<h3><a href = "{% url 'movie_list.views.movie_detail'  pk=movie.pk %}">{{movie.movie_name}}</h3>
+					<img src = "{{movie.image_url}}">
+					<p>{{movie.release_date}}</p>
 				</div>
 			</div>
-		</nav>
-		<div class = "content">
-			<form method = "GET" , action = "search">
-                <input type="text" name = "q" placeholder="Search..." required/>
-                <input type="submit" />
+		{% endfor %}
+	</div>
 
-			</form>
-			<div class = 'row'>
-				{% for movie in movies %}
-					<div class = 'col-sm-3'>
-						<div class = 'thumbnail'>
-							<h3><a href = "{% url 'movie_list.views.movie_detail'  pk=movie.pk %}">{{movie.movie_name}}</h3>
-							<img src = "{{movie.image_url}}">
-							<p>{{movie.release_date}}</p>
-						</div>
-					</div>
-				{% endfor %}
-			</div>
-		<div>
-
-	</body>
-
-</html>
-
+{% endblock %}

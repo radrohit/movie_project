@@ -1,40 +1,16 @@
-{% load staticfiles %}
-<html>
-	<head>
-		<title>Movie List</title>
-		 <link rel="stylesheet" href="{% static 'css/movie_list.css' %}">
-		 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	</head>
-	<body>
-		<nav class = "navbar navbar-default">
-			<div class = "container-fluid">
-				<div class = "navbar-header">
-					<a class = "navbar-brand" href = "/">Movie List</a>
+{% extends 'movie_list/base.html' %}
+{% block content %}
+	{% if result %}
+		<div class = 'row'>
+			{% for movie in result %}
+				<div class = 'col-sm-3'>
+					<div class = 'thumbnail'>
+						<h3><a href = "{% url 'movie_list.views.movie_detail'  pk=movie.pk %}">{{movie.movie_name}}</h3>
+					</div>
 				</div>
-				<div>
-					<ul class = "nav navbar-nav">
-						<li><a href = "/">Home</a></li>
-						<li><a href = "/new">Add Movie</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<div class = 'content'>
-			{% if result %}
-				<div class = 'row'>
-					{% for movie in result %}
-						<div class = 'col-sm-3'>
-							<div class = 'thumbnail'>
-								<h3><a href = "{% url 'movie_list.views.movie_detail'  pk=movie.pk %}">{{movie.movie_name}}</h3>
-							</div>
-						</div>
-					{% endfor %}
-				</div>
-			{% else %}
-				<h4>No Search Result </h4>
-			{% endif %}
-			
+			{% endfor %}
 		</div>
-	</body>
-</html>
+	{% else %}
+		<h4>No Search Result </h4>
+	{% endif %}
+{$ endblock %}

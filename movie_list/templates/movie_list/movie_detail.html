@@ -1,32 +1,10 @@
-{% load staticfiles %}
-<html>
-	<head>
-		<title>Movie List</title>
-		 <link rel="stylesheet" href="{% static 'css/movie_list.css' %}">
-		 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	</head>
-	<body>
-		<nav class = "navbar navbar-default">
-			<div class = "container-fluid">
-				<div class = "navbar-header">
-					<a class = "navbar-brand" href = "/">Movie List</a>
-				</div>
-				<div>
-					<ul class = "nav navbar-nav">
-						<li><a href = "/">Home</a></li>
-						<li class><a href = "{% url 'movie_list.views.add_new' %}">Add Movie</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<div class = 'content'>
-			<a class="btn btn-default" href="{% url 'movie_list.views.movie_edit' pk=movie.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-			<h1>{{movie.movie_name}}</h1>
-			<p>{{movie.release_date}}</p>
-			<img src = "{{movie.image_url}}">
-			<h4>Description</h4>
-			<p>{{movie.movie_description}}</p>
+{% extends 'movie_list/base.html' %}
+{% block content %}
+		<a class="btn btn-default" href="{% url 'movie_list.views.movie_edit' pk=movie.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		<h1>{{movie.movie_name}}</h1>
+		<p>{{movie.release_date}}</p>
+		<img src = "{{movie.image_url}}">
+		<h4>Description</h4>
+		<p>{{movie.movie_description}}</p>
 
-		</div>
-	</body>
+{% endblock %}

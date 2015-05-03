@@ -5,24 +5,24 @@ from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import patterns
 urlpatterns = [
-	url(r'^$',views.movie_display),
-	url(r'^new/$',views.add_new),
-	url(r'^(?P<pk>[0-9]+)/$',views.movie_detail),
-	url(r'^(?P<pk>[0-9]+)/edit/$',views.movie_edit),
-	url(r'^search/$',views.search_result),
-	] 
+    url(r'^$', views.movie_display),
+    url(r'^new/$', views.add_new),
+    url(r'^(?P<pk>[0-9]+)/$', views.movie_detail),
+    url(r'^(?P<pk>[0-9]+)/edit/$', views.movie_edit),
+    url(r'^search/$', views.search_result),
+]
 
 urlpatterns += staticfiles_urlpatterns()
-
+### Image file is linked through specifying url pattern.
 if settings.DEBUG:
     urlpatterns += patterns('',
-        url(r'^images/(?P<path>.*)$', 'django.views.static.serve', {
-            'document_root': settings.MEDIA_ROOT,
-        }),
+                            url(r'^images/(?P<path>.*)$', 'django.views.static.serve', {
+                                'document_root': settings.MEDIA_ROOT,
+                            }),
 
-    )
+                            )
     urlpatterns += patterns('',
-        url(r'^([0-9]+)/images/(?P<path>.*)$', 'django.views.static.serve', {
-            'document_root': settings.MEDIA_ROOT,
-        }),
-   )
+                            url(r'^([0-9]+)/images/(?P<path>.*)$', 'django.views.static.serve', {
+                                'document_root': settings.MEDIA_ROOT,
+                            }),
+                            )

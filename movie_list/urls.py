@@ -8,6 +8,8 @@ urlpatterns = [
 	url(r'^$',views.movie_display),
 	url(r'^new/$',views.add_new),
 	url(r'^(?P<pk>[0-9]+)/$',views.movie_detail),
+	url(r'^(?P<pk>[0-9]+)/edit/$',views.movie_edit),
+	url(r'^search/$',views.search_result),
 	] 
 
 urlpatterns += staticfiles_urlpatterns()
@@ -17,7 +19,7 @@ if settings.DEBUG:
         url(r'^images/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.MEDIA_ROOT,
         }),
-    
+
     )
     urlpatterns += patterns('',
         url(r'^([0-9]+)/images/(?P<path>.*)$', 'django.views.static.serve', {

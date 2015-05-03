@@ -51,7 +51,7 @@ def add_new(request):
         if form.is_valid():
             movie = form.save(commit=False)
             movie.save()
-            return redirect('movie_list.views.movie_detail', pk=post.pk)
+            return redirect('movie_list.views.movie_detail', pk=movie.pk)
     else:
         form = AddMovie()
 

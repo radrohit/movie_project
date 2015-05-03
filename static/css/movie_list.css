@@ -1,22 +1,27 @@
-
 .thumbnail h3{
 	text-align: center;
-	margin-top: 0px;
-	margin-bottom: 1px;
-	margin-left: 0px;
-	margin-right: 0px;
+
 
 }
 
-.thumbnail p{
+.img-responsive{
+	height:100px;
+}
+
+.thumbnail h3 a{
+	color: black;
+}
+
+.thumbnail h4{
 	text-align: center;
-	font-size: 140%;
-	margin: 0px;
+}
+label{
+	margin-right: 30px;
+	width: 100px;
 }
 
-.thumbnail>img, .thumbnail a>img{
-	margin-right:0px;
+input{
+	height: 29px;
+	width: 150px;
 
 }
-
-

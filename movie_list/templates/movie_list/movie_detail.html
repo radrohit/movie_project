@@ -15,12 +15,13 @@
 				<div>
 					<ul class = "nav navbar-nav">
 						<li><a href = "/">Home</a></li>
-						<li class><a href = "{% url 'movie_list.views.add_new'}">Add Movie</a></li>
+						<li class><a href = "{% url 'movie_list.views.add_new' %}">Add Movie</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<div class = 'content'>
+			<a class="btn btn-default" href="{% url 'movie_list.views.movie_edit' pk=movie.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
 			<h1>{{movie.movie_name}}</h1>
 			<p>{{movie.release_date}}</p>
 			<img src = "{{movie.image_url}}">

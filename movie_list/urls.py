@@ -13,7 +13,7 @@ urlpatterns = [
 ]
 
 urlpatterns += staticfiles_urlpatterns()
-### Image file is linked through specifying url pattern.
+### Image thumbnail url pattern are display
 if settings.DEBUG:
     urlpatterns += patterns('',
                             url(r'^images/(?P<path>.*)$', 'django.views.static.serve', {

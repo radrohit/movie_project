@@ -108,6 +108,7 @@ def movie_edit(request, pk):
     """
     movie = get_object_or_404(Movie, pk=pk)
     if request.method == 'POST':
+        form = AddMovie(request.POST, request.FILES, instance=movie)
         if form.is_valid():
             movie = form.save(commit=False)
             movie.save()

@@ -1,5 +1,6 @@
 .thumbnail h3{
 	text-align: center;
+	white-space: nowrap;
 
 
 }
@@ -28,4 +29,8 @@ input{
 
 #id_movie_poster{
 	width: 250px;
+}
+
+#id_genre_id select{
+	width: 150px;
 }

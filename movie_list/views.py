@@ -51,6 +51,7 @@ def add_new(request):
         if form.is_valid():
             movie = form.save(commit=False)
             movie.save()
+            form.save_m2m()
             return redirect('movie_list.views.movie_detail', pk=movie.pk)
     else:
         form = AddMovie()
@@ -78,7 +79,7 @@ def movie_detail(request, pk):
 
     """
     movie = get_object_or_404(Movie, pk=pk)
-    return render(request, 'movie_list/movie_detail.html', {'movie': movie})
+    return render(request, 'movie_list/movie_detail.html', {'movie': movie, 'genre': movie.get_genre()})
 
 
 def movie_edit(request, pk):
@@ -111,9 +112,11 @@ def movie_edit(request, pk):
         if form.is_valid():
             movie = form.save(commit=False)
             movie.save()
+            form.save_m2m()
             return redirect('movie_list.views.movie_detail', pk=movie.pk)
     else:
         form = AddMovie(instance=movie)
+    
     return render(request, 'movie_list/movie_edit.html', {'form': form})
 
 

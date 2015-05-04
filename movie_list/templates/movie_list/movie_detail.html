@@ -8,9 +8,12 @@
             <div class="col-lg-12">
                 <h1 class="page-header">{{movie.movie_name}}
                 	<small>{{movie.release_date}}</small>
+                	{% for gen in genre %}
+                		<small>{{ gen }}</small>
+                	{% endfor %}
+
                 	<a class="btn btn-default pull-right" href="{% url 'movie_list.views.movie_edit' pk=movie.pk %}"><span class="glyphicon glyphicon-pencil"></span>  Edit</a>
                 </h1>
-
             </div>
         </div>
         <!-- /.row -->
@@ -24,7 +27,7 @@
             </div>
 
             <div class="col-md-8">
-                <h3>MovieDescription</h3>
+                <h3>Movie Description</h3>
                 <p>{{movie.movie_description}}</p>
             </div>
 

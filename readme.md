@@ -30,7 +30,7 @@ This is tested on local server using windows
 and on codeenvy web server
 
 ### Instruction on local server: ###
-Run in command line start.bat on movie_project direction to start the server
+Run in command line start.bat on movie_project directory to start the server
 
 ### Instruction on Codeenvy webserver ###
 
@@ -46,6 +46,7 @@ After opening an account
 ## Future possible additions ##
  - Add cast field and details about the cast
  - Add trailer field for movie and play it in the site
+ - Delete function
 
 
 

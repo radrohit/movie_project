@@ -74,7 +74,7 @@ class Movie(models.Model):
         default=datetime.datetime.now().year
     )
     movie_poster = models.ImageField(
-        upload_to="poster", blank=True)
+        upload_to="poster")
     movie_description = models.TextField()
     mpaa_rating = models.CharField(max_length=5,
                                    choices=MPAA_RATINGS, default='N/A')
@@ -104,3 +104,15 @@ class Movie(models.Model):
             return self.movie_poster.url
         else:
             return 'images/poster/default.jpg'
+
+    def get_genre(self):
+        """
+
+        Return the genre list for the movie 
+
+        """
+        genre_list = []
+        for g in self.genre_id.all():
+            genre_list.append(str(g))
+        return genre_list
+
